@@ -12,7 +12,7 @@ Last class we were able to utilize the IMU and turnsensor.h to display a heading
 ![image](https://github.com/CGA-TOOP/TOOP18/assets/67393204/1f9d0eda-ea8d-4ba0-931a-c7c10b591d1b)
 
 ## Working with the bump sensor
-The 3pi+ 32U4 includes two bump sensors on the front of the robot.  To utilize the bump sensors with will include the Pololu library `#include <Pololu3piPlus32U4.h>`.  We also must create a bump sensors object from the `BumpSensors` class:
+The 3pi+ 32U4 includes two bump sensors on the front of the robot.  To utilize the bump sensors, we must include the Pololu library `#include <Pololu3piPlus32U4.h>`.  We also must create a bump sensors object from the `BumpSensors` class:
 
 `BumpSensors bumpSensors`
 
