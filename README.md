@@ -23,7 +23,7 @@ The status of the bump sensor can be determined a few different way.  You can ca
 
 Instead of checking the return value of this method, you can instead call `read()` and then use the functions `leftChanged()`, `rightChanged()`, `leftIsPressed()`, and `rightIsPressed()` to get information about the bump sensors.
 
-Here are some of the command you may frequently use:
+Here are some of the commands you may frequently use:
 ```
 void calibrate()  //calibrated the bump sensors
 uint8_t read()  //Reads both sensors
