@@ -25,11 +25,13 @@ Instead of checking the return value of this method, you can instead call `read(
 
 Here are some of the command you may frequently use:
 ```
-void turnSensorSetup()  //This should be called in setup() to calibrate your robot. 
-void turnSensorReset() //This resets the starting point for measuring a turn.
-void turn SensorUpdate()  //This reads the gyro and updates the heading.
+void calibrate()  //calibrated the bump sensors
+uint8_t read()  //Reads both sensors
+void leftChanged()  //Indicates a state change of left bump sensor since last read
+void rightChanged()  //Indicates a state change of right bump sensor since last read
+void leftisPressed() //Indacates left bump sensor is pressed
+void rightisPressed() //Indacates right bump sensor is pressed
 ```
-
 
 ## Exercise
 Begin today’s in-class exercise by cusing the pseudocode above to create a funciton that can execute a 90 degree coutner clockwise turn.
