@@ -34,7 +34,7 @@ void rightisPressed() //Indacates right bump sensor is pressed
 ```
 
 ## Exercise
-Begin today’s in-class exercise by cusing the pseudocode above to create a funciton that can execute a 90 degree coutner clockwise turn.
+Begin today’s in-class exercise by using the pseudocode above to create a funciton that can execute a 90 degree coutner clockwise turn.
 
 After that, make a new Platform IO project named TOOP17 and program your robot to meet the following requirements. The goal is for when your code starts, the robot waits for a button press. If button A is pressed, the robot will move forward until it hits an obstruction. If button B is pressed, your robot will execute a 90 degre clockwise turn.  If time allows, have your robot make a 90 degree counter clockwise turn if butotn C is pressed.
 
