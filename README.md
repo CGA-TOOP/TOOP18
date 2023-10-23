@@ -11,13 +11,17 @@ Last class we were able to utilize the IMU and turnsensor.h to display a heading
 
 ![image](https://github.com/CGA-TOOP/TOOP18/assets/67393204/1f9d0eda-ea8d-4ba0-931a-c7c10b591d1b)
 
-## Working with the IMU (Inertial Measurement Unit)
-The 3pi+ 32U4 includes on-board inertial sensors that allow it to determine its own orientation by implementing an inertial measurement unit (IMU). The first chip, an ST LSM6DS33, combines a 3-axis accelerometer and 3-axis gyro into a single package. The second chip is an ST LIS3MDL 3-axis magnetometer.
-To utilize the IMU working we have to explicitly include the Pololu IMU library `#include <Pololu3piPlus32U4IMU.h>`.  We also must create an IMU object from the `IMU` class:
+## Working with the bump sensor
+The 3pi+ 32U4 includes two bump sensors on the front of the robot.  To utilize the bump sensors with will include the Pololu library `#include <Pololu3piPlus32U4.h>`.  We also must create a bump sensors object from the `BumpSensors` class:
 
-`IMU imu`
+`BumpSensors bumpSensors`
 
-Working direclty with the IMU library can be a bit cumbersome.  To assist, you will want to utilize the provided TurnSensor.h header file.  Download this file and save in the `include` drectory of your PlatformIO project.  The purpose of this file is to allow you use predefined functions in your main.cpp to better control the gyro heading sensor. After you have created your objects, then be sure to include the TurnSensor.h file. 
+The status of the bump sensor can be determined a few different way.  You can call the `read()` function to return a two bit value indicated the status of the left and right bump sensor, where bit 0 is the status of the right sensor and bit 1 is the status of the left sensor. For example, a return value of 2 (0b10 in binary) indicates:
+
+  - The right bump sensor is pressed, since bit 1 (BumpRight) is set.
+  - The left bump sensor is not pressed, since bit 0 (BumpLeft) is cleared.
+
+Instead of checking the return value of this method, you can instead call `read()` and then use the functions `leftChanged()`, `rightChanged()`, `leftIsPressed()`, and `rightIsPressed()` to get information about the bump sensors.
 
 Here are some of the command you may frequently use:
 ```
@@ -26,33 +30,7 @@ void turnSensorReset() //This resets the starting point for measuring a turn.
 void turn SensorUpdate()  //This reads the gyro and updates the heading.
 ```
 
-## Putting it all together
-Here is a basic starting point for future projects that need to use buttons, display, motors, and IMUs.
-```
-#include <Arduino.h>
-#include <Pololu3piPlus32U4.h>
-#include <Pololu3piPlus32U4IMU.h>
 
-using namespace Pololu3piPlus32U4;
-
-OLED display;
-ButtonA buttonA;
-ButtonB buttonB;
-ButtonC buttonC;
-Motors motor;
-IMU imu;
-
-#include "TurnSensor.h"
-
-void setup(){
-
-}
-
-void loop(){
-
-}
-
-```
 ## Exercise
 Begin today’s in-class exercise by cusing the pseudocode above to create a funciton that can execute a 90 degree coutner clockwise turn.
 
@@ -65,13 +43,10 @@ In setup()
   - Display on the second line of the OLED “Bumpers ready”
 
 In loop() 
-  - Declare an integer variable named buttonPressed which receives the returned value of the getButton function (code previously provided)
-  - Using a switch statement evaluate buttonPressed and do the following:
-    - If button 1 is pressed, start the motors so your robot moves forward, repeatedly display the range to an obstruction and continue moving forward until the ultrasonic sensor is less than or equal to 15 cm
-    - If button 2 is pressed, start the motors so your robot moves backwards, display the repeatedly display the range from an obstruction and continue moving backwards until the ultrasonic sensor read 30.5 cm or more.
+  - Using a switch statement to do the following:
+    - If button 1 is pressed, start the motors so your robot moves forward untill your robot hits an obstruction
+    - If button 2 is pressed, execute a 90 degree clockwise turn.
   - Delay for .5 second 
-
- 
 
 Please refer to previous in class exercises for the getButton() function (or copy from your previous code!). 
 
