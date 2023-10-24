@@ -36,7 +36,7 @@ void rightisPressed() //Indacates right bump sensor is pressed
 ## Exercise
 Begin today’s in-class exercise by using the pseudocode above to create a function that can execute a 90 degree turn.
 
-Next, make a new Platform IO project named TOOP17 and program your robot to meet the following requirements:
+Next, make a new Platform IO project named TOOP18 and program your robot to meet the following requirements:
   - When your code starts, the robot waits for a button press.
   - If button A is pressed, the robot will move forward until it hits an obstruction.
   - If button B is pressed, your robot will execute a 90 degree clockwise turn.
@@ -49,7 +49,7 @@ In setup()
   - Display on the second line of the OLED “Bumpers ready”
 
 In loop() 
-  - Using a switch statement to do the following:
+  - Using a selection statement to do the following:
     - If button 1 is pressed, start the motors so your robot moves forward untill your robot hits an obstruction
     - If button 2 is pressed, execute a 90 degree clockwise turn.
   - Delay for .5 second 
