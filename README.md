@@ -34,7 +34,7 @@ void rightisPressed() //Indacates right bump sensor is pressed
 ```
 
 ## Exercise
-Begin today’s in-class exercise by using the pseudocode above to create a function that can execute a 90 degree turn.
+Begin today’s in-class exercise by using the flow chart above to create a function that can execute a 90 degree turn.
 
 Next, make a new Platform IO project named TOOP18 and program your robot to meet the following requirements:
   - When your code starts, the robot waits for a button press.
